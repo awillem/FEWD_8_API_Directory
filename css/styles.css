@@ -1,0 +1,137 @@
+/* colors
+  #4b3832 medium brown 75,56,50
+  #854442 reddish brown 133,68,66
+  #fff4e6 light cream
+  #3c2f2f dark brown
+  #be9b7b tan 190, 155, 123
+https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes/
+17. Cappuccino
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff4e6;
+  font-family: 'Be Vietnam', sans-serif;
+  color: #3c2f2f;
+  background: url( hotel-wallpaper/hotel-wallpaper.png);
+
+}
+
+.wrapper {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+header {
+  background: #3c2f2f;
+  color: #fff;
+  font-family: 'Anonymous Pro', monospace;
+  margin-top: 0;
+  height: 65px;
+  box-shadow: 0px 3px 3px 4px rgba(31,25,25, .5);
+}
+
+header .wrapper {
+  display: flex;
+  align-items: center;
+}
+
+header h2 {
+  margin: 0;
+  padding: 10px 0px 10px 10px;
+  display: inline-block;
+}
+
+header #search-div {
+  margin-left: auto;
+  width: 20%;
+  min-width: 250px;
+  margin-right: 20px;
+  
+  position: relative;
+}
+
+header input {
+  border-radius: 5px;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  color: #854442
+
+}
+
+#search-div span {
+
+  color: #854442;
+  position: absolute;
+  font-size: 1.15rem;
+  right: 10px;
+  top: 9px;
+}
+
+main .directory {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  background: linear-gradient(to top, #be9b7b , #fff4e6 40%);
+  flex: 1 33%;
+  border-left: 9px solid rgba(60,47,47,1);
+  align-items: center;
+  transition: .4s all ease-in-out;
+  box-shadow: 1px 3px 3px 3px rgba(31,25,25, .5);
+}
+
+.card:hover {
+  box-shadow: 0px -3px 5px 5px rgba( 75,56,50, .5);
+  background: linear-gradient(to top, #fffdfa , #fffdfa 95%);
+  border-left: 9px solid #854442;
+}
+
+.card .img {
+  padding: 5px;
+  flex: 1 33%;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 120px;
+  display: block;
+  margin: auto;
+  box-shadow: 1px 1px 3px 2px rgba(31,25,25, .5);
+  border: 4px #854442 transparent;
+  transition: .1s all ease-out;
+}
+
+.card:hover img {
+  border: 4px #854442 solid;
+}
+
+.card .info {
+  flex: 1 67%;
+  text-align: center;
+  
+}
+
+.card h3,
+.card p {
+  margin: 8px 0;
+  transition: .2s ease-in;
+}
+
+.card:hover h3,
+.card:hover p {
+  /* color: white; */
+  /* font-size: 1.2em; */
+  text-shadow: 3px 3px 2px rgba(190, 155, 123, .5);
+}
