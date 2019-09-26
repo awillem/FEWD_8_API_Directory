@@ -173,9 +173,26 @@ main .directory {
   top: 0
 }
 
+.modal-content {
+  width: 84%;
+  height: 500px;
+  border-radius: 5px;
+  position: fixed;
+  top: 10%;
+  left: calc(50% - 42%);
+  background: white;
+}
+
 /**************
  MEDIA QUERIES
 **************/
+
+@media screen and (min-width: 600px) {
+  .modal-content {
+    width: 400px;
+    left: calc(50% - 200px)
+}
+}
 
 @media screen and (min-width: 768px) {
   .wrapper {
@@ -201,7 +218,7 @@ main .directory {
     grid-column-gap: 25px;
   }
   
-
+  
   
   
 }
