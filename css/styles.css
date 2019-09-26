@@ -1,7 +1,7 @@
 /* colors
   #4b3832 medium brown 75,56,50
   #854442 reddish brown 133,68,66
-  #fff4e6 light cream
+  #fff4e6 light cream 255 244 230
   #3c2f2f dark brown
   #be9b7b tan 190, 155, 123
 https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes/
@@ -16,7 +16,8 @@ body {
   background: #fff4e6;
   font-family: 'Be Vietnam', sans-serif;
   color: #3c2f2f;
-  background: url( hotel-wallpaper/hotel-wallpaper.png);
+  background: linear-gradient(rgba(255,244,230, .3),rgba(255,244,230, .3)), url( hotel-wallpaper/hotel-wallpaper.png);
+  /* background: url( hotel-wallpaper/hotel-wallpaper.png); */
 
 }
 
