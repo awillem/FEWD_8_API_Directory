@@ -156,6 +156,10 @@ main .directory {
   text-shadow: 3px 3px 2px rgba(190, 155, 123, .5);
 }
 
+.modal-container {
+  visibility: hidden;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     max-width: 840px;
