@@ -14,11 +14,14 @@ https://digitalsynopsis.com/design/beautiful-color-palettes-combinations-schemes
 
 body {
   background: #fff4e6;
-  font-family: 'Be Vietnam', sans-serif;
+  font-family: "Be Vietnam", sans-serif;
   color: #3c2f2f;
-  background: linear-gradient(rgba(255,244,230, .3),rgba(255,244,230, .3)), url( hotel-wallpaper/hotel-wallpaper.png);
+  background: linear-gradient(
+      rgba(255, 244, 230, 0.3),
+      rgba(255, 244, 230, 0.3)
+    ),
+    url(hotel-wallpaper/hotel-wallpaper.png);
   /* background: url( hotel-wallpaper/hotel-wallpaper.png); */
-
 }
 
 .wrapper {
@@ -31,10 +34,10 @@ body {
 header {
   background: #3c2f2f;
   color: #fff;
-  font-family: 'Anonymous Pro', monospace;
+  font-family: "Anonymous Pro", monospace;
   margin-top: 0;
   height: 115px;
-  box-shadow: 0px 3px 3px 4px rgba(31,25,25, .5);
+  box-shadow: 0px 3px 3px 4px rgba(31, 25, 25, 0.5);
 }
 
 header .wrapper {
@@ -65,7 +68,7 @@ header input {
   border: none;
   padding: 8px;
   width: 100%;
-  color: #854442;  
+  color: #854442;
   outline: none;
 }
 
@@ -76,19 +79,16 @@ header input:hover {
 header input::placeholder {
   color: #4b3832;
   font-style: italic;
-  font-size: .85em;
+  font-size: 0.85em;
 }
 
 #search-div span {
-
   color: #854442;
   position: absolute;
   font-size: 1.15rem;
   right: 10px;
   top: 9px;
 }
-
-
 
 main .directory {
   margin-top: 30px;
@@ -102,16 +102,16 @@ main .directory {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, #be9b7b , #fff4e6 40%);
-  border-left: 9px solid rgba(60,47,47,1);
+  background: linear-gradient(to top, #be9b7b, #fff4e6 40%);
+  border-left: 9px solid rgba(60, 47, 47, 1);
   align-items: center;
-  transition: all .3s ease-in-out, color .05s ;
-  box-shadow: 1px 3px 3px 3px rgba(31,25,25, .5);
+  transition: all 0.3s ease-in-out, color 0.05s;
+  box-shadow: 1px 3px 3px 3px rgba(31, 25, 25, 0.5);
 }
 
 .card:hover {
-  box-shadow: 0px -3px 5px 5px rgba( 75,56,50, .5);
-  background: linear-gradient(to top, #fffdfa , #fffdfa 95%);
+  box-shadow: 0px -3px 5px 5px rgba(75, 56, 50, 0.5);
+  background: linear-gradient(to top, #fffdfa, #fffdfa 95%);
   border-left: 9px solid #854442;
 }
 
@@ -125,38 +125,37 @@ main .directory {
   width: 120px;
   display: block;
   margin: auto;
-  box-shadow: 1px 1px 3px 2px rgba(31,25,25, .5);
+  box-shadow: 1px 1px 3px 2px rgba(31, 25, 25, 0.5);
   border: 4px #854442 transparent;
-  transition: .1s all ease-out;
+  transition: 0.1s all ease-out;
 }
 
 .card:hover img {
-  border: 4px #854442 solid;
+  border: 5px #854442 solid;
 }
 
 .card:active {
-  background: rgb(75,56,50);
+  background: rgb(75, 56, 50);
   color: white;
-  box-shadow: inset 0px 0px 9px 9px  #1f1919;
+  box-shadow: inset 0px 0px 9px 9px #1f1919;
 }
 /*75,56,50*/
 .card .info {
   flex: 1 67%;
   text-align: center;
-  
 }
 
 .card h3,
 .card p {
   margin: 8px 0;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .card:hover h3,
 .card:hover p {
   /* color: white; */
   /* font-size: 1.2em; */
-  text-shadow: 3px 3px 2px rgba(190, 155, 123, .5);
+  text-shadow: 3px 3px 2px rgba(190, 155, 123, 0.5);
 }
 
 /*************
@@ -164,13 +163,20 @@ main .directory {
 *************/
 
 .modal-container {
-  /* visibility: hidden; */
+  visibility: hidden;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(100,100,100,.5);
+  background: rgba(100, 100, 100, 0.5);
   z-index: 100;
   position: fixed;
   top: 0;
+  transition: 0.4s ease-in;
+}
+
+.modal-container.open {
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal-content {
@@ -183,7 +189,7 @@ main .directory {
   background: #f7f1e9;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows:50px;
+  grid-template-rows: 50px;
 }
 
 .modal-nav {
@@ -196,18 +202,34 @@ main .directory {
 }
 
 .modal-nav i {
-    font-size: 1.35em;
-    padding-top: 4px;
+  font-size: 1.35em;
+  padding-top: 4px;
+  transition: 0.2s ease-out;
+}
+
+.modal-nav i:hover {
+  color: white;
+  text-shadow: 0 0 5px rgba(31, 25, 25, 0.7);
 }
 
 .modal-nav a {
   padding: 2px 8px;
   border-radius: 5px;
   border: 1px #be9b7b solid;
-  background: rgba(190, 155, 123,.5)
+  background: rgba(190, 155, 123, 0.5);
+  transition: 0.2s ease-out;
 }
 
+.modal-nav a:hover {
+  box-shadow: 0 0 5px rgba(31, 25, 25, 0.7);
+  color: white;
+}
 
+.modal-nav a:active {
+  background: rgb(75, 56, 50);
+  color: white;
+  box-shadow: inset 0px 0px 9px 9px #1f1919;
+}
 
 .employee-info {
   padding: 25px;
@@ -215,8 +237,7 @@ main .directory {
   flex-direction: column;
 }
 
-
-.employee, 
+.employee,
 .location {
   flex: 1 100%;
   width: 100%;
@@ -229,15 +250,15 @@ main .directory {
 
 .location {
   margin-top: 20px;
-  border-top: 1px #be9b7b solid;
+  border-top: 2px #be9b7b solid;
   padding-top: 20px;
 }
 
-.employee h3, 
+.employee h3,
 .employee p,
 .location p {
   flex: 1 100%;
-  margin: 0;  
+  margin: 0;
   padding: 5px 0;
 }
 
@@ -251,8 +272,6 @@ main .directory {
   padding: 20px;
 }
 
-
-
 /**************
  MEDIA QUERIES
 **************/
@@ -260,8 +279,8 @@ main .directory {
 @media screen and (min-width: 600px) {
   .modal-content {
     width: 400px;
-    left: calc(50% - 200px)
-}
+    left: calc(50% - 200px);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -287,10 +306,6 @@ main .directory {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 25px;
   }
-  
-  
-  
-  
 }
 
 @media screen and (min-width: 1024px) {
@@ -315,7 +330,6 @@ main .directory {
     /* grid-row-gap: 40px; */
   }
 }
-
 
 .clearfix::after {
   content: "";
