@@ -129,6 +129,7 @@ function generateModal(person) {
     <h3>${person.name.first} ${person.name.last}</h3>
       <p>${person.email}</p>
       <p>${person.location.city}</p>
+      <p><span>Username: </span>${person.login.username}
   </div>
   <div class="location">
     <p class="phone">${person.cell}</p>
