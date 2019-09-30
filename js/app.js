@@ -24,7 +24,7 @@ fetchPeople(peopleUrl).then(data => {
 /*******************
  * Event Listener
  ******************/
-directory.addEventListener("click", e => {
+directory.addEventListener("mouseup", e => {
   if (
     e.target.closest(".card") &&
     e.target.className !== "next" &&
@@ -32,6 +32,8 @@ directory.addEventListener("click", e => {
   ) {
     const targetPerson = e.target.closest(".card").children;
     const name = targetPerson[1].children[0].innerText;
+    //looks at each user in list to see if it is the one clicked. 
+    // if it is, generates the Modal & sets the currentIndex
     currentPeople.forEach((person, index) => {
       if (name === `${person.name.first} ${person.name.last}`) {
         modal.firstElementChild.innerHTML = generateModal(person);
@@ -43,6 +45,8 @@ directory.addEventListener("click", e => {
     modal.classList.remove("closed");
   }
 });
+
+// MODAL CLOSE
 
 modal.addEventListener("click", e => {
   if (
@@ -58,6 +62,9 @@ document.addEventListener("keyup", e => {
     closeModal();
   }
 });
+
+// PREV/NEXT
+// creates new content for modal based on the changed currentIndex value. 
 
 modal.addEventListener("click", e => {
   if (e.target.className === "prev") {
@@ -78,6 +85,8 @@ modal.addEventListener("click", e => {
   );
 });
 
+// SEARCH
+
 searchInput.addEventListener("keyup", e => {
   search(e.target.value);
 });
@@ -85,11 +94,11 @@ searchInput.addEventListener("keyup", e => {
 /*******************
  * Helper Functions
  ******************/
+// Fetch and parse data from a url
 async function fetchPeople(url) {
   const response = await fetch(url);
   const json = await response.json();
   return json.results;
-  // json.results.map(person => people.push(person));
 }
 
 function generateCards(employeeList) {
@@ -149,11 +158,13 @@ function closeModal() {
  * Search
  *********/
 
+// Searches both username and Name
 function search(searchTerm) {
-  currentPeople.length = 0;
+  currentPeople.length = 0; // clears current user array
+  // if search value is empty, shows all people
   if (searchTerm === "") {
     currentPeople = [...people];
-  } else {
+  } else { // Runs search, pushing matched users to the currentPeople array
     people.forEach(person => {
       const name = `${person.name.first} ${person.name.last}`;
       if (
@@ -165,8 +176,8 @@ function search(searchTerm) {
     });
   }
 
+  // if there is a search term but no results
   if (searchTerm.length > 0 && currentPeople.length === 0) {
-    console.log("no");
     directory.innerHTML = `<h3>No Results. Try Again</h3>`;
   } else {
     generateCards(currentPeople);
